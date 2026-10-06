@@ -1,0 +1,20 @@
+.idea/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# UCI 原始二进制文件需要从官方来源下载。
+data/raw/*.xlsx
+data/raw/*.zip
+
+# 流水线生成的数据层和本地数据库体积较大，可重复构建。
+data/staging/
+data/mart/
+warehouse/*.db
+warehouse/*.db-shm
+warehouse/*.db-wal
+
+# 探索阶段的文本报告不进入代码仓库。
+reports/*.txt

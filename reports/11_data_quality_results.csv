@@ -1,0 +1,17 @@
+﻿test_name,failed_rows,test_status
+01_staging_row_count,0,PASS
+02_staging_source_row_unique,0,PASS
+03_staging_line_amount,0,PASS
+04_staging_record_type,0,PASS
+05_cancellation_flag,0,PASS
+06_fact_order_row_count,0,PASS
+07_fact_order_key_unique,0,PASS
+08_fact_positive_adjusted_sales,0,PASS
+09_fact_amount_reconciliation,0,PASS
+10_customer_row_count,0,PASS
+11_customer_key_unique,0,PASS
+12_customer_referential_integrity,0,PASS
+13_rfm_score_range,0,PASS
+14_customer_segment_not_null,0,PASS
+15_customer_amount_reconciliation,0,PASS
+16_total_sales_regression,0,PASS

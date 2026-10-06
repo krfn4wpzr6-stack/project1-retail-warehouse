@@ -1,0 +1,8 @@
+﻿step_number,step_name,script_name,started_at,duration_seconds,return_code,status
+1,构建暂存层,05_build_staging_data.py,2026-10-06T19:30:18,20.71,0,PASS
+2,构建订单事实表,06_build_order_fact.py,2026-10-06T19:30:39,1.7,0,PASS
+3,构建客户指标表,07_build_customer_mart.py,2026-10-06T19:30:41,0.82,0,PASS
+4,构建 RFM 客户分层,08_build_rfm_segments.py,2026-10-06T19:30:42,0.81,0,PASS
+5,装载 SQLite 数据仓库,09_load_sqlite_warehouse.py,2026-10-06T19:30:42,5.37,0,PASS
+6,生成月度销售报告,10_run_monthly_sales_sql.py,2026-10-06T19:30:48,0.82,0,PASS
+7,执行数据质量测试,11_run_data_quality_tests.py,2026-10-06T19:30:49,1.76,0,PASS

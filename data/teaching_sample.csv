@@ -1,0 +1,6 @@
+InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+1001,A,Cup,2,2026-01-01 10:00:00,10.00,U01,United Kingdom
+1001,B,Bag,1,2026-01-01 10:00:00,30.00,U01,United Kingdom
+1002,A,Cup,1,2026-01-02 11:00:00,10.00,U02,United Kingdom
+C1001,A,Cup,-1,2026-01-03 12:00:00,10.00,U01,United Kingdom
+1003,C,Notebook,3,2026-01-04 13:00:00,5.00,,United Kingdom
