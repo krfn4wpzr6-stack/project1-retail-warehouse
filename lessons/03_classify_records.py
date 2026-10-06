@@ -2,27 +2,11 @@ from pathlib import Path
 
 import pandas as pd
 
+from retail_rules import classify_record
+
 
 project_root = Path(__file__).resolve().parents[1]
 data_path = project_root / "data" / "raw" / "Online Retail.xlsx"
-
-
-def classify_record(row):
-    invoice = str(row["InvoiceNo"]).upper()
-
-    if invoice.startswith("C"):
-        return "customer_cancellation"
-
-    if row["Quantity"] < 0:
-        return "inventory_adjustment_candidate"
-
-    if row["UnitPrice"] <= 0:
-        return "nonpositive_price_candidate"
-
-    if pd.isna(row["CustomerID"]):
-        return "unknown_customer_purchase"
-
-    return "regular_purchase"
 
 
 print("正在读取数据……")

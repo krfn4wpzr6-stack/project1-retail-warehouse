@@ -2,6 +2,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from retail_rules import prepare_valid_sales
+
 
 project_root = Path(__file__).resolve().parents[1]
 staging_path = (
@@ -22,26 +24,8 @@ data = pd.read_csv(
     low_memory=False,
 )
 
-# 有效销售口径：
-# 1. 不是顾客取消
-# 2. 数量大于 0
-# 3. 单价大于 0
-valid_sales = data.loc[
-    (~data["is_customer_cancellation"])
-    & (data["Quantity"] > 0)
-    & (data["UnitPrice"] > 0)
-].copy()
-
-# 计算“疑似重复数据”对金额的影响，但不直接删除原记录。
-valid_sales["duplicate_candidate_amount"] = (
-    valid_sales["line_amount"]
-    .where(valid_sales["is_exact_duplicate_extra"], 0)
-)
-
-valid_sales["adjusted_line_amount"] = (
-    valid_sales["line_amount"]
-    .where(~valid_sales["is_exact_duplicate_extra"], 0)
-)
+# 有效销售口径与重复候选金额计算集中在共用规则模块中。
+valid_sales = prepare_valid_sales(data)
 
 # 按发票号聚合。
 # 订单事实表的粒度：一行代表一张发票。

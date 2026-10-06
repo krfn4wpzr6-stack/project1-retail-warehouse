@@ -4,6 +4,8 @@
 
 项目同时提供 Streamlit 交互式仪表盘，用于查看月度趋势、国家销售、客户分层和质量测试状态。
 
+GitHub Actions 会在每次推送和拉取请求中运行不依赖原始 Excel 的单元测试。
+
 ## 项目结果
 
 | 指标 | 结果 |
@@ -93,6 +95,7 @@ project1-retail-warehouse/
 │   └── mart/                # 流水线生成，不提交 Git
 ├── lessons/                 # 从调查到数仓的逐步学习脚本
 ├── dashboard/               # Streamlit 交互式分析界面
+├── tests/                   # 可在 CI 中独立运行的业务规则测试
 ├── reports/                 # 小型结果报告与流水线运行记录
 ├── sql/
 │   ├── analysis/            # 分析查询
@@ -149,6 +152,14 @@ python -m streamlit run dashboard/app.py
 
 仪表盘包含月份、国家和客户分层筛选，可查看经营概览、客户 RFM 和 16 项数据质量测试。最后一个月只覆盖到 2011-12-09，界面会显示边界月份提醒。
 
+### 5. 运行单元测试
+
+```powershell
+python -m unittest discover -s tests -v
+```
+
+这些测试使用内存中的小型样例，检查记录分类优先级、独立质量标记、有效销售筛选和重复候选金额对账，因此不需要下载原始 Excel。
+
 ## 技术栈
 
 - Python 3.13
@@ -157,6 +168,7 @@ python -m streamlit run dashboard/app.py
 - SQLite / SQL
 - Streamlit 1.64.0
 - Plotly 7.1.0
+- GitHub Actions
 - PyCharm
 
 ## 已知限制
