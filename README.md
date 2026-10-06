@@ -2,6 +2,8 @@
 
 一个可重复运行的本地数据工程项目：从 541,909 条零售交易明细出发，完成数据调查、质量标记、订单事实表、客户 RFM 分层、SQLite 装载、SQL 报表和自动化质量测试。
 
+项目同时提供 Streamlit 交互式仪表盘，用于查看月度趋势、国家销售、客户分层和质量测试状态。
+
 ## 项目结果
 
 | 指标 | 结果 |
@@ -90,6 +92,7 @@ project1-retail-warehouse/
 │   ├── staging/             # 流水线生成，不提交 Git
 │   └── mart/                # 流水线生成，不提交 Git
 ├── lessons/                 # 从调查到数仓的逐步学习脚本
+├── dashboard/               # Streamlit 交互式分析界面
 ├── reports/                 # 小型结果报告与流水线运行记录
 ├── sql/
 │   ├── analysis/            # 分析查询
@@ -138,12 +141,22 @@ python run_pipeline.py
 - `reports/11_data_quality_results.csv`
 - `reports/12_pipeline_run_summary.csv`
 
+### 4. 启动交互式仪表盘
+
+```powershell
+python -m streamlit run dashboard/app.py
+```
+
+仪表盘包含月份、国家和客户分层筛选，可查看经营概览、客户 RFM 和 16 项数据质量测试。最后一个月只覆盖到 2011-12-09，界面会显示边界月份提醒。
+
 ## 技术栈
 
 - Python 3.13
 - pandas 2.3.3
 - openpyxl 3.1.5
 - SQLite / SQL
+- Streamlit 1.64.0
+- Plotly 7.1.0
 - PyCharm
 
 ## 已知限制

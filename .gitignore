@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+.streamlit/secrets.toml
 
 # UCI 原始二进制文件需要从官方来源下载。
 data/raw/*.xlsx
